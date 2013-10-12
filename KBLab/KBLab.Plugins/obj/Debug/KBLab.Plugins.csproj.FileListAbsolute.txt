@@ -1,0 +1,13 @@
+L:\Github\KBLab\KBLab\KBLab.Plugins\bin\Debug\KBLab.Plugins.dll
+L:\Github\KBLab\KBLab\KBLab.Plugins\bin\Debug\KBLab.Plugins.pdb
+L:\Github\KBLab\KBLab\KBLab.Plugins\bin\Debug\Kooboo.CMS.Toolkit.dll
+L:\Github\KBLab\KBLab\KBLab.Plugins\obj\Debug\KBLab.Plugins.dll
+L:\Github\KBLab\KBLab\KBLab.Plugins\obj\Debug\KBLab.Plugins.pdb
+L:\Github\KBLab\KBLab\KBLab.Plugins\bin\Debug\Kooboo.CMS.Common.dll
+L:\Github\KBLab\KBLab\KBLab.Plugins\bin\Debug\Kooboo.dll
+L:\Github\KBLab\KBLab\KBLab.Plugins\bin\Debug\Kooboo.CMS.Content.dll
+L:\Github\KBLab\KBLab\KBLab.Plugins\bin\Debug\Kooboo.CMS.Membership.dll
+L:\Github\KBLab\KBLab\KBLab.Plugins\bin\Debug\Kooboo.CMS.Caching.dll
+L:\Github\KBLab\KBLab\KBLab.Plugins\bin\Debug\Kooboo.CMS.Web.dll
+L:\Github\KBLab\KBLab\KBLab.Plugins\bin\Debug\Kooboo.CMS.Form.dll
+L:\Github\KBLab\KBLab\KBLab.Plugins\obj\Debug\KBLab.Plugins.csprojResolveAssemblyReference.cache

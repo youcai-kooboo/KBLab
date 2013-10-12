@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    @Html.FrontHtml().HtmlTitle()
+    @Html.FrontHtml().Meta()
+    <!-- The styles below should be move into css files -->
+    <style type="text/css">
+        /* Layout:This should be put in layout.css */
+        #body-container {
+            margin: 0 auto;
+            width: 960px;
+        }
+        #header {
+            margin-bottom: 10px;
+        }
+        #main-container {
+            margin-bottom: 10px;
+        }
+        /* End layout */
+    </style>
+    @Html.FrontHtml().RegisterStyles()
+</head>
+<body>
+    <div id="body-container">
+        <!--header-->
+        <div id="header">
+            @Html.FrontHtml().Position("header")
+        </div>
+        <!--end header-->
+        <!--main container-->
+        <div id="main-container">
+            @Html.FrontHtml().Position("main")
+        </div>
+        <!--end main container-->
+        <!--footer-->
+        <div id="footer">
+            @Html.FrontHtml().Position("footer")
+        </div>
+        <!--end footer-->
+    </div>
+    @Html.FrontHtml().RegisterScripts()
+</body>
+</html>
+ 

@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Kooboo.CMS.Toolkit, Version=4.1.0.528, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Kooboo.CMS.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -434,6 +438,7 @@
     <Content Include="Areas\Sites\Styles\images\map-item-hover.png" />
     <Content Include="Areas\Sites\Styles\images\map-item.png" />
     <Content Include="Areas\Sites\Styles\sites.css" />
+    <Content Include="Cms_Data\Contents\KBLab\Data\_category_.xml" />
     <Content Include="Cms_Data\Contents\SampleSite\Data\Article.xml" />
     <Content Include="Cms_Data\Contents\SampleSite\Data\Category.xml" />
     <Content Include="Cms_Data\Contents\SampleSite\Data\Comment.xml" />
@@ -444,6 +449,7 @@
     <Content Include="Cms_Data\Contents\SampleSite_CN\Data\Comment.xml" />
     <Content Include="Cms_Data\Contents\SampleSite_CN\Data\_category_.xml" />
     <Content Include="Cms_Data\Contents\SampleSite_CN\Search\LastActions.xml" />
+    <Content Include="Cms_Data\Sites\KBLab\Themes\Default\main.css" />
     <Content Include="Cms_Data\Sites\SampleSite\Files\favicon.ico" />
     <Content Include="Cms_Data\Sites\SampleSite\Files\logo.png" />
     <Content Include="Cms_Data\Sites\SampleSite\Scripts\app.js" />
@@ -1956,7 +1962,32 @@
     <Content Include="Menu.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Cms_Data\Sites\KBLab\Themes\Default\images\" />
     <Folder Include="Cms_Data\Sites\SampleSite\WebEvents\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cms_Data\Sites\KBLab\Membership.zip" />
+    <Content Include="Cms_Data\Sites\KBLab\Pages\Index\setting.config" />
+    <Content Include="Cms_Data\Sites\KBLab\setting.config" />
+    <Content Include="Cms_Data\Sites\KBLab\Templates\Layouts\Main\setting.config" />
+    <Content Include="Cms_Data\Sites\KBLab\Templates\Layouts\Main\template.cshtml" />
+    <Content Include="Cms_Data\Sites\KBLab\Templates\Views\Subscribe\setting.config" />
+    <Content Include="Cms_Data\Sites\KBLab\Templates\Views\Subscribe\template.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cms_Data\Contents\KBLab\Search\Index\segments.gen" />
+    <Content Include="Cms_Data\Contents\KBLab\Search\Index\segments_1" />
+    <Content Include="Cms_Data\Contents\KBLab\setting.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KBLab.Modules\KBLab.Modules.csproj">
+      <Project>{b1c2c7cb-76fa-4f09-a942-fd49d14798bb}</Project>
+      <Name>KBLab.Modules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KBLab.Plugins\KBLab.Plugins.csproj">
+      <Project>{009cad01-6636-44a9-8c0a-5c2cd50e8cac}</Project>
+      <Name>KBLab.Plugins</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

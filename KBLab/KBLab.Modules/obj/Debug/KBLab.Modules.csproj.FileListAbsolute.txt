@@ -1,0 +1,14 @@
+L:\Github\KBLab\KBLab\KBLab.Modules\bin\Debug\KBLab.Modules.dll
+L:\Github\KBLab\KBLab\KBLab.Modules\bin\Debug\KBLab.Modules.pdb
+L:\Github\KBLab\KBLab\KBLab.Modules\bin\Debug\Kooboo.CMS.Common.dll
+L:\Github\KBLab\KBLab\KBLab.Modules\bin\Debug\Kooboo.CMS.Content.dll
+L:\Github\KBLab\KBLab\KBLab.Modules\bin\Debug\Kooboo.CMS.Sites.dll
+L:\Github\KBLab\KBLab\KBLab.Modules\bin\Debug\Kooboo.CMS.Toolkit.dll
+L:\Github\KBLab\KBLab\KBLab.Modules\bin\Debug\Kooboo.dll
+L:\Github\KBLab\KBLab\KBLab.Modules\bin\Debug\Kooboo.CMS.Form.dll
+L:\Github\KBLab\KBLab\KBLab.Modules\obj\Debug\KBLab.Modules.dll
+L:\Github\KBLab\KBLab\KBLab.Modules\obj\Debug\KBLab.Modules.pdb
+L:\Github\KBLab\KBLab\KBLab.Modules\obj\Debug\KBLab.Modules.csprojResolveAssemblyReference.cache
+L:\Github\KBLab\KBLab\KBLab.Modules\bin\Debug\Kooboo.CMS.Caching.dll
+L:\Github\KBLab\KBLab\KBLab.Modules\bin\Debug\Kooboo.CMS.Membership.dll
+L:\Github\KBLab\KBLab\KBLab.Modules\bin\Debug\Kooboo.CMS.Web.dll

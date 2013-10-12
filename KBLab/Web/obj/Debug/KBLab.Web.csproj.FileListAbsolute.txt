@@ -9,3 +9,16 @@ L:\Github\KBLab\KBLab\Web\obj\Debug\KBLab.Web.I18N.zh-TW.resources
 L:\Github\KBLab\KBLab\Web\obj\Debug\KBLab.Web.csproj.GenerateResource.Cache
 L:\Github\KBLab\KBLab\Web\obj\Debug\KBLab.Web.dll
 L:\Github\KBLab\KBLab\Web\obj\Debug\KBLab.Web.pdb
+L:\Github\KBLab\KBLab\Web\bin\Kooboo.CMS.Toolkit.dll
+L:\Github\KBLab\KBLab\Web\bin\Kooboo.CMS.Content.dll
+L:\Github\KBLab\KBLab\Web\bin\Kooboo.dll
+L:\Github\KBLab\KBLab\Web\bin\Kooboo.CMS.Web.dll
+L:\Github\KBLab\KBLab\Web\bin\Kooboo.CMS.Sites.dll
+L:\Github\KBLab\KBLab\Web\bin\Kooboo.CMS.Common.dll
+L:\Github\KBLab\KBLab\Web\bin\Kooboo.CMS.Caching.dll
+L:\Github\KBLab\KBLab\Web\bin\Kooboo.CMS.Form.dll
+L:\Github\KBLab\KBLab\Web\bin\Kooboo.CMS.Membership.dll
+L:\Github\KBLab\KBLab\Web\bin\KBLab.Modules.dll
+L:\Github\KBLab\KBLab\Web\bin\KBLab.Plugins.dll
+L:\Github\KBLab\KBLab\Web\bin\KBLab.Modules.pdb
+L:\Github\KBLab\KBLab\Web\bin\KBLab.Plugins.pdb
