@@ -1,0 +1,11 @@
+L:\Github\KBLab\KBLab\Web\bin\KBLab.Web.dll
+L:\Github\KBLab\KBLab\Web\bin\KBLab.Web.pdb
+L:\Github\KBLab\KBLab\Web\obj\Debug\KBLab.Web.csprojResolveAssemblyReference.cache
+L:\Github\KBLab\KBLab\Web\obj\Debug\KBLab.Web.Cms_Data.Sites.SampleSite.Labels.Labels.resources
+L:\Github\KBLab\KBLab\Web\obj\Debug\KBLab.Web.I18N.en-US.resources
+L:\Github\KBLab\KBLab\Web\obj\Debug\KBLab.Web.I18N.ru-RU.resources
+L:\Github\KBLab\KBLab\Web\obj\Debug\KBLab.Web.I18N.zh-CN.resources
+L:\Github\KBLab\KBLab\Web\obj\Debug\KBLab.Web.I18N.zh-TW.resources
+L:\Github\KBLab\KBLab\Web\obj\Debug\KBLab.Web.csproj.GenerateResource.Cache
+L:\Github\KBLab\KBLab\Web\obj\Debug\KBLab.Web.dll
+L:\Github\KBLab\KBLab\Web\obj\Debug\KBLab.Web.pdb

@@ -1,0 +1,42 @@
+Event code: 100000
+Event message: Path '/' was not found.
+Event time: 2013/10/12 15:26:53
+Event time (UTC): 2013/10/12 7:26:53
+Event ID: 500e51a18d6245138e044af10350bf30
+Event sequence: 5
+Event detail code: 0
+
+Application information:
+    Application domain: /LM/W3SVC/12/ROOT-1-130260364094271813
+    Trust level: Full
+    Application Virtual Path: /
+    Application Path: L:\Github\KBLab\KBLab\Web\
+    Machine name: LYANG-PC
+
+Exception information:
+    Exception type: System.Web.HttpException
+    Exception message: Path '/' was not found.
+
+Request information:
+    Request URL: /
+    Request path: /
+    User host address: 127.0.0.1
+    User: 
+    Is authenticated: False
+    Authentication Type: 
+    Thread account name: IIS APPPOOL\KBLab
+
+Thread information:
+    Thread ID: 5
+    Thread account name: IIS APPPOOL\KBLab
+    Is impersonating: False
+    Stack trace:    在 Kooboo.CMS.Sites.Controllers.ActionFilters.CheckSiteExistsActionFilter.OnSiteNotExists(ActionExecutingContext filterContext)
+   在 Kooboo.CMS.Sites.Controllers.ActionFilters.CheckSiteExistsActionFilter.OnActionExecuting(ActionExecutingContext filterContext)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+
+
+Custom event details: 
+--------------------------------------------------------------------------------------------------------
