@@ -1,0 +1,81 @@
+﻿@using System.Collections
+@using MD.Domain.Model
+@{
+    ViewBag.Title = "Dashboard";
+}
+<div class="row-fluid">
+    <div class="box span12">
+        <div class="box-header well" data-original-title>
+            <h2><i class="icon-edit"></i>Dashboard</h2>
+        </div> 
+        <div   class="box-content"><a type="submit" class="btn btn-primary" href="@Url.Action("Index","Statistics")">Refresh</a> <a style="border-left-width: 0px; margin-left: 15px;" href="http://proddv.sentia.nl/menzis/manual/manual1.pdf" target="_blank" class="btn btn">Handleiding</a></div>
+        <div class="box-content">
+            <div class="span12">
+                <table id="CategoryListGrid" class="table table-striped table-bordered bootstrap-datatable datatable" >
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >&nbsp;</th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Username: activate to sort column descending">&nbsp;</th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >Verzonden</th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" colspan="2" aria-label="Actions: activate to sort column ascending">Aangekomen</th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" colspan="2" aria-label="Actions: activate to sort column ascending">Bounces</th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" colspan="2" aria-sort="ascending" aria-label="Username: activate to sort column descending">Opens</th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" colspan="2" aria-label="Actions: activate to sort column ascending">Unieke opens</th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" colspan="2" aria-label="Actions: activate to sort column ascending">Unieke kliks</th>
+                            <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Username: activate to sort column descending">&nbsp;</th>
+ 
+                        </tr>
+                        <tr role="row">
+                            <th style="width: auto" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >Emailverzending</th>
+                            <th style="width: auto" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Username: activate to sort column descending">Verzenddatum</th>
+                            <th style="width: 6%" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >#</th>
+                            <th style="width: 6%" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >#</th>
+                            <th style="width: 6%" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Username: activate to sort column descending">%</th>
+                            <th style="width: 6%" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >#</th>
+                            <th style="width: 6%" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >%</th>
+                            <th style="width: 6%" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Username: activate to sort column descending">#</th>
+                            <th style="width: 6%" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >%</th>
+                            <th style="width: 6%" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >#</th>
+                            <th style="width: 6%" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Username: activate to sort column descending">%</th>
+                            <th style="width: 6%" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >#</th>
+                            <th style="width: 6%" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >%</th>
+                            <th style="width: 6%" class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" >CTO %</th>
+                        </tr>
+                    </thead>
+
+                    <tbody role="alert" aria-live="polite" aria-relevant="all">
+                        @foreach (Statistics item in ViewBag.Statistics)
+                        {
+                            <tr class="odd">
+                            <td >@item.Email</td>
+                            <td >@(item.VerzendDatum.ToString("dd/MM/yyyy"))</td>
+                            <td >@item.AantalVerzonden</td>
+                            <td >@item.AantalAangekomen</td>
+                            <td >@item.AangekomenVerzondenPerc</td>
+                            <td >@item.AantalBounces</td>
+                            <td >@item.BouncesVerzondenPerc</td>
+                            <td >@item.AantalOpens</td>
+                            <td >@item.AantalOpensAantalAangekomenPerc</td>
+                            <td >@item.AantalUniekeOpens</td>
+                            <td >@item.AantalUniekeOpensAantalAangekomenPerc</td>
+                            <td >@item.UniekeKliks</td>
+                            <td >@item.AantalUniekeKliksAantalAangekomenPerc</td>
+                            <td >@item.AantalUniekeKliksAantalUniekeOpensCTOPerc</td> 
+                            </tr>
+                            }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<style type="text/css">
+    .table th {
+        text-align: center;
+    }
+    .box-content {
+        padding-bottom: 0px;
+    }
+</style>

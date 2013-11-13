@@ -1,0 +1,37 @@
+﻿
+<div class="btn-group pull-right">
+    @if (Request.IsAuthenticated)
+    {
+        <text>
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-user"></i>
+            <span class="hidden-phone">@User.Identity.Name</span>
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>@Html.ActionLink("Change Password", "Manage", "User", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })</li>
+            <li>
+                @using (Html.BeginForm("LogOff", "User", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <a href="javascript:document.getElementById('logoutForm').submit()" class="username" title="Logoff" onclick="javascript:return confirm('Are you sure to logoff?');">Log off</a>
+                }
+            </li>
+        </ul>
+        </text>
+    }
+    else
+    {
+        @*<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-user"></i>
+            <span class="hidden-phone">Signin/Signup
+            </span>
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>@Html.ActionLink("Register", "Register", "User", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li class="divider"></li>
+            <li>@Html.ActionLink("Log in", "Login", "User", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>*@
+    }
+</div>

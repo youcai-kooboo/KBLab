@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.servicestack.net/types" elementFormDefault="qualified" targetNamespace="http://schemas.servicestack.net/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Menzis.ServiceModel.Types.BODS" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Menzis.ServiceModel.Types" />
+  <xs:complexType name="UserDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserDetails" nillable="true" type="tns:UserDetails" />
+  <xs:complexType name="CheckAuth">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="CheckAuth" nillable="true" type="tns:CheckAuth" />
+  <xs:complexType name="GetActiviteit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GrondslagID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetActiviteit" nillable="true" type="tns:GetActiviteit" />
+  <xs:complexType name="GetGebruikersActiviteit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="ActiviteitID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGebruikersActiviteit" nillable="true" type="tns:GetGebruikersActiviteit" />
+  <xs:complexType name="StartActiviteit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="ActiviteitID" type="xs:long" />
+      <xs:element minOccurs="0" name="GrondslagID" type="xs:long" />
+      <xs:element minOccurs="0" name="ParentGrondslagID" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="VulEinddatum" type="xs:boolean" />
+      <xs:element minOccurs="0" name="enqueteVragen" nillable="true" type="tns:ArrayOfEnqueteVraag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StartActiviteit" nillable="true" type="tns:StartActiviteit" />
+  <xs:complexType name="ArrayOfEnqueteVraag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EnqueteVraag" nillable="true" type="tns:EnqueteVraag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEnqueteVraag" nillable="true" type="tns:ArrayOfEnqueteVraag" />
+  <xs:complexType name="EnqueteVraag">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AntwoordIDs" nillable="true" type="q1:ArrayOflong" />
+      <xs:element minOccurs="0" name="Antwoorden" nillable="true" type="tns:ArrayOfEnqueteAntwoord" />
+      <xs:element minOccurs="0" name="EnqueteVraagID" type="xs:long" />
+      <xs:element minOccurs="0" name="GrondslagID" type="xs:long" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Volgorde" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Vraag" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnqueteVraag" nillable="true" type="tns:EnqueteVraag" />
+  <xs:complexType name="ArrayOfEnqueteAntwoord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EnqueteAntwoord" nillable="true" type="tns:EnqueteAntwoord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEnqueteAntwoord" nillable="true" type="tns:ArrayOfEnqueteAntwoord" />
+  <xs:complexType name="EnqueteAntwoord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Antwoord" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AntwoordInput" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnqueteAntwoordID" type="xs:long" />
+      <xs:element minOccurs="0" name="EnqueteVraagID" type="xs:long" />
+      <xs:element minOccurs="0" name="Punten" type="xs:int" />
+      <xs:element minOccurs="0" name="Selected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ToonInput" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EnqueteAntwoord" nillable="true" type="tns:EnqueteAntwoord" />
+  <xs:complexType name="StartActiviteitMultiple">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Activiteiten" nillable="true" type="tns:ArrayOfStartActiviteit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StartActiviteitMultiple" nillable="true" type="tns:StartActiviteitMultiple" />
+  <xs:complexType name="ArrayOfStartActiviteit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StartActiviteit" nillable="true" type="tns:StartActiviteit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStartActiviteit" nillable="true" type="tns:ArrayOfStartActiviteit" />
+  <xs:complexType name="StopActiviteit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="ActiviteitID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StopActiviteit" nillable="true" type="tns:StopActiviteit" />
+  <xs:complexType name="HaalDeelnemers">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bedrijfsAfkorting" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="blockSize" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HaalDeelnemers" nillable="true" type="tns:HaalDeelnemers" />
+  <xs:complexType name="HaalBlockCount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bedrijfsAfkorting" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="blockSize" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HaalBlockCount" nillable="true" type="tns:HaalBlockCount" />
+  <xs:complexType name="HaalAantalDeelnemers">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bedrijfsAfkorting" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HaalAantalDeelnemers" nillable="true" type="tns:HaalAantalDeelnemers" />
+  <xs:complexType name="HaalGrondslagen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bedrijfsAfkorting" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HaalGrondslagen" nillable="true" type="tns:HaalGrondslagen" />
+  <xs:complexType name="PostGrondslagFotoUploadOngepast">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="GrondslagFotoUploadID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PostGrondslagFotoUploadOngepast" nillable="true" type="tns:PostGrondslagFotoUploadOngepast" />
+  <xs:complexType name="GetGrondslagFotoUploads">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aantal" type="xs:int" />
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="All" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GrondslagID" type="xs:long" />
+      <xs:element minOccurs="0" name="InDeBuurt" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Polisnummer" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagFotoUploads" nillable="true" type="tns:GetGrondslagFotoUploads" />
+  <xs:complexType name="AddGrondslagFotoUpload">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="ActiviteitID" type="xs:long" />
+      <xs:element minOccurs="0" name="Extensie" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddGrondslagFotoUpload" nillable="true" type="tns:AddGrondslagFotoUpload" />
+  <xs:complexType name="DeleteGrondslagFotoUpload">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GrondslagFotoUploadID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteGrondslagFotoUpload" nillable="true" type="tns:DeleteGrondslagFotoUpload" />
+  <xs:complexType name="GetGrondslagFotoUpload">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GrondslagFotoUploadID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagFotoUpload" nillable="true" type="tns:GetGrondslagFotoUpload" />
+  <xs:complexType name="SetUserPreferences">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="InteresseGebiedenIDs" nillable="true" type="q2:ArrayOflong" />
+      <xs:element minOccurs="0" name="UpdateFrequency" type="xs:long" />
+      <xs:element minOccurs="0" name="UpdateInteressesOnly" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Updates" type="xs:boolean" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UpdatesOver" nillable="true" type="q3:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SetUserPreferences" nillable="true" type="tns:SetUserPreferences" />
+  <xs:complexType name="SetUserAkkoordVoorwaarden">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="ProfielID" type="xs:long" />
+      <xs:element minOccurs="0" name="Versie" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SetUserAkkoordVoorwaarden" nillable="true" type="tns:SetUserAkkoordVoorwaarden" />
+  <xs:complexType name="UserEmail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserEmail" nillable="true" type="tns:UserEmail" />
+  <xs:complexType name="GetGrondslagen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aantal" type="xs:int" />
+      <xs:element minOccurs="0" name="InteressegebiedID" type="xs:long" />
+      <xs:element minOccurs="0" name="Page" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagen" nillable="true" type="tns:GetGrondslagen" />
+  <xs:complexType name="GetGrondslagenAanmelden">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="GetGrondslagenAanmelden" nillable="true" type="tns:GetGrondslagenAanmelden" />
+  <xs:complexType name="GetGrondslagenEnGestarteGrondslagen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Aantal" type="xs:int" />
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="GrondslagCategorieID" type="xs:long" />
+      <xs:element minOccurs="0" name="GrondslagPage" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Page" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagenEnGestarteGrondslagen" nillable="true" type="tns:GetGrondslagenEnGestarteGrondslagen" />
+  <xs:complexType name="GetGrondslagCategories">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="GetGrondslagCategories" nillable="true" type="tns:GetGrondslagCategories" />
+  <xs:complexType name="GetInteresseGebieden">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="GetInteresseGebieden" nillable="true" type="tns:GetInteresseGebieden" />
+  <xs:complexType name="GetToestemmingen">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="GetToestemmingen" nillable="true" type="tns:GetToestemmingen" />
+  <xs:complexType name="GetGrondslagSocialInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GrondslagID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagSocialInfo" nillable="true" type="tns:GetGrondslagSocialInfo" />
+  <xs:complexType name="GetGrondslagenByCategorie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategorieID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagenByCategorie" nillable="true" type="tns:GetGrondslagenByCategorie" />
+  <xs:complexType name="GetExtraGrondslagBijKeyname">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GrondslagID" type="xs:long" />
+      <xs:element minOccurs="0" name="Keyname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetExtraGrondslagBijKeyname" nillable="true" type="tns:GetExtraGrondslagBijKeyname" />
+  <xs:complexType name="Mutaties">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="From" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Page" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="To" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Mutaties" nillable="true" type="tns:Mutaties" />
+  <xs:complexType name="Mutatie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="Datum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GrondslagID" type="xs:long" />
+      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OmschrijvingKort" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Polisnummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Punten" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Mutatie" nillable="true" type="tns:Mutatie" />
+  <xs:complexType name="ResetPassword">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResetPassword" nillable="true" type="tns:ResetPassword" />
+  <xs:complexType name="SetNewPassword">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResetCode" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SetNewPassword" nillable="true" type="tns:SetNewPassword" />
+  <xs:complexType name="GetProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Polisnummer" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetProfile" nillable="true" type="tns:GetProfile" />
+  <xs:complexType name="IsDeelnemer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Polis" nillable="true" type="tns:Polis" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IsDeelnemer" nillable="true" type="tns:IsDeelnemer" />
+  <xs:complexType name="Polis">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Polisnummer" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Polis" nillable="true" type="tns:Polis" />
+  <xs:complexType name="Register">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Achternaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AutoLogin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Geboortedatum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Polisnummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Postcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tussenvoegsels" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Verzekerdenummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Voorletters" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wachtwoord" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Register" nillable="true" type="tns:Register" />
+  <xs:complexType name="DeactivateProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProfielID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeactivateProfile" nillable="true" type="tns:DeactivateProfile" />
+  <xs:complexType name="GetSingleSignOnKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Polisnummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Verzekerdenummer" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSingleSignOnKey" nillable="true" type="tns:GetSingleSignOnKey" />
+  <xs:complexType name="ValideerSingleSignOnKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValideerSingleSignOnKey" nillable="true" type="tns:ValideerSingleSignOnKey" />
+  <xs:complexType name="Spaarpunten">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Jaar" type="xs:int" />
+      <xs:element minOccurs="0" name="Polisnummer" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Spaarpunten" nillable="true" type="tns:Spaarpunten" />
+  <xs:complexType name="GetTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NaamWebsite" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetTemplate" nillable="true" type="tns:GetTemplate" />
+  <xs:complexType name="SubtractPoints">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Artikelcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContractantId" type="xs:int" />
+      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Points" type="xs:int" />
+      <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubtractPoints" nillable="true" type="tns:SubtractPoints" />
+  <xs:complexType name="RefreshToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RefreshToken" nillable="true" type="tns:RefreshToken" />
+  <xs:complexType name="RetrievePolisInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RetrievePolisInfo" nillable="true" type="tns:RetrievePolisInfo" />
+  <xs:complexType name="Auth">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="provider" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="oauth_token" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="oauth_verifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RememberMe" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Continue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nonce" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="uri" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="response" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="qop" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="cnonce" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Auth" nillable="true" type="tns:Auth" />
+  <xs:complexType name="Resources">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apiKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Resources" nillable="true" type="tns:Resources" />
+  <xs:complexType name="ResourceRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apiKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResourceRequest" nillable="true" type="tns:ResourceRequest" />
+  <xs:complexType name="RequestLogs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BeforeSecs" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AfterSecs" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ForwardedFor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserAuthId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Referer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PathInfo" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Ids" nillable="true" type="q4:ArrayOflong" />
+      <xs:element minOccurs="0" name="BeforeId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="AfterId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="HasResponse" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WithErrors" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Skip" type="xs:int" />
+      <xs:element minOccurs="0" name="Take" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EnableSessionTracking" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EnableResponseTracking" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EnableErrorTracking" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DurationLongerThan" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="DurationLessThan" nillable="true" type="ser:duration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestLogs" nillable="true" type="tns:RequestLogs" />
+  <xs:complexType name="UserDetailsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:Account" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserDetailsResponse" nillable="true" type="tns:UserDetailsResponse" />
+  <xs:complexType name="ResponseStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfResponseError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+  <xs:complexType name="ArrayOfResponseError">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResponseError" nillable="true" type="tns:ResponseError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResponseError" nillable="true" type="tns:ArrayOfResponseError" />
+  <xs:complexType name="ResponseError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="FieldName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseError" nillable="true" type="tns:ResponseError" />
+  <xs:complexType name="Account">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="Achternaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Geboortedatum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Geslacht" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Huisnummer" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="HuisnummerToevoeging" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="InteresseGebiedIDs" nillable="true" type="q5:ArrayOflong" />
+      <xs:element minOccurs="0" name="LastLogin" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Postcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfielID" type="xs:long" />
+      <xs:element minOccurs="0" name="Straatnaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tussenvoegsels" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateFrequentie" type="xs:long" />
+      <xs:element minOccurs="0" name="Updates" type="xs:boolean" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UpdatesOver" nillable="true" type="q6:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Verwijderd" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Verzekerdenummer" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="Voorletters" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Voornaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Woonplaats" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Account" nillable="true" type="tns:Account" />
+  <xs:complexType name="GetActiviteitResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Activiteiten" nillable="true" type="tns:ArrayOfActiviteit" />
+      <xs:element minOccurs="0" name="EnqueteVragen" nillable="true" type="tns:ArrayOfEnqueteVraag" />
+      <xs:element minOccurs="0" name="FotoUploadGrondslag" nillable="true" type="tns:Grondslag" />
+      <xs:element minOccurs="0" name="Grondslag" nillable="true" type="tns:Grondslag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetActiviteitResponse" nillable="true" type="tns:GetActiviteitResponse" />
+  <xs:complexType name="ArrayOfActiviteit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Activiteit" nillable="true" type="tns:Activiteit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfActiviteit" nillable="true" type="tns:ArrayOfActiviteit" />
+  <xs:complexType name="Activiteit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="ActiviteitID" type="xs:long" />
+      <xs:element minOccurs="0" name="EindDatum" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GrondslagID" type="xs:long" />
+      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentGrondslagID" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="StartDatum" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Activiteit" nillable="true" type="tns:Activiteit" />
+  <xs:complexType name="Grondslag">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AantalPunten" type="xs:int" />
+      <xs:element minOccurs="0" name="Actief" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DatumAangemaakt" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DatumTot" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DatumVan" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Frequentie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gestart" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GrondslagCategorieID" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="GrondslagCategorieNaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrondslagID" type="xs:long" />
+      <xs:element minOccurs="0" name="GrondslagTypeID" type="xs:long" />
+      <xs:element minOccurs="0" name="GrondslagTypeNaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InteresseGebiedID" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="InteresseGebiedNaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsNieuw" type="xs:boolean" />
+      <xs:element minOccurs="0" name="KorteOmschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MagDelen" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MagFotoUploaden" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrivacyOmschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PuntenOmschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spotlight" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Toegangscode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Toestemmingsvraag" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Grondslag" nillable="true" type="tns:Grondslag" />
+  <xs:complexType name="GetGebruikersActiviteitResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Activiteit" nillable="true" type="tns:Activiteit" />
+      <xs:element minOccurs="0" name="EnqueteVragen" nillable="true" type="tns:ArrayOfEnqueteVraag" />
+      <xs:element minOccurs="0" name="Grondslag" nillable="true" type="tns:Grondslag" />
+      <xs:element minOccurs="0" name="Toestemming" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGebruikersActiviteitResponse" nillable="true" type="tns:GetGebruikersActiviteitResponse" />
+  <xs:complexType name="StartActiviteitResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AantalPunten" type="xs:int" />
+      <xs:element minOccurs="0" name="Activiteit" nillable="true" type="tns:Activiteit" />
+      <xs:element minOccurs="0" name="ActiviteitID" type="xs:long" />
+      <xs:element minOccurs="0" name="Gestopt" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Grondslag" nillable="true" type="tns:Grondslag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StartActiviteitResponse" nillable="true" type="tns:StartActiviteitResponse" />
+  <xs:complexType name="StartActiviteitMultipleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="StartActiviteitResponses" nillable="true" type="tns:ArrayOfStartActiviteitResponse" />
+      <xs:element minOccurs="0" name="TotaalAantalPunten" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StartActiviteitMultipleResponse" nillable="true" type="tns:StartActiviteitMultipleResponse" />
+  <xs:complexType name="ArrayOfStartActiviteitResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StartActiviteitResponse" nillable="true" type="tns:StartActiviteitResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStartActiviteitResponse" nillable="true" type="tns:ArrayOfStartActiviteitResponse" />
+  <xs:complexType name="StopActiviteitResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="StopActiviteitResponse" nillable="true" type="tns:StopActiviteitResponse" />
+  <xs:complexType name="HaalDeelnemersResponse">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Menzis.ServiceModel.Types.BODS" minOccurs="0" name="HaalDeelnemersResult" nillable="true" type="q7:ArrayOfPuntenDeelnemerInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HaalDeelnemersResponse" nillable="true" type="tns:HaalDeelnemersResponse" />
+  <xs:complexType name="HaalBlockCountResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HaalBlockCountResult" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HaalBlockCountResponse" nillable="true" type="tns:HaalBlockCountResponse" />
+  <xs:complexType name="HaalAantalDeelnemersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HaalAantalDeelnemersResult" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HaalAantalDeelnemersResponse" nillable="true" type="tns:HaalAantalDeelnemersResponse" />
+  <xs:complexType name="HaalGrondslagenResponse">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Menzis.ServiceModel.Types.BODS" minOccurs="0" name="HaalGrondslagenResult" nillable="true" type="q8:ArrayOfPuntenGrondslagOdsInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HaalGrondslagenResponse" nillable="true" type="tns:HaalGrondslagenResponse" />
+  <xs:complexType name="PostGrondslagFotoUploadOngepastResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="PostGrondslagFotoUploadOngepastResponse" nillable="true" type="tns:PostGrondslagFotoUploadOngepastResponse" />
+  <xs:complexType name="GetGrondslagFotoUploadsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GrondslagFotoUploads" nillable="true" type="tns:ArrayOfGrondslagFotoUpload" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagFotoUploadsResponse" nillable="true" type="tns:GetGrondslagFotoUploadsResponse" />
+  <xs:complexType name="ArrayOfGrondslagFotoUpload">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GrondslagFotoUpload" nillable="true" type="tns:GrondslagFotoUpload" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGrondslagFotoUpload" nillable="true" type="tns:ArrayOfGrondslagFotoUpload" />
+  <xs:complexType name="GrondslagFotoUpload">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountAchternaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="AccountTussenvoegsels" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccountVoorletters" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DatumUpload" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Extensie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrondslagDatumVan" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GrondslagFotoUploadID" type="xs:long" />
+      <xs:element minOccurs="0" name="GrondslagFrequentie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrondslagID" type="xs:long" />
+      <xs:element minOccurs="0" name="GrondslagNaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrondslagPunten" type="xs:int" />
+      <xs:element minOccurs="0" name="Ongepast" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GrondslagFotoUpload" nillable="true" type="tns:GrondslagFotoUpload" />
+  <xs:complexType name="AddGrondslagFotoUploadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GrondslagFotoUploadID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddGrondslagFotoUploadResponse" nillable="true" type="tns:AddGrondslagFotoUploadResponse" />
+  <xs:complexType name="DeleteGrondslagFotoUploadResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="DeleteGrondslagFotoUploadResponse" nillable="true" type="tns:DeleteGrondslagFotoUploadResponse" />
+  <xs:complexType name="GetGrondslagFotoUploadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GrondslagFotoUpload" nillable="true" type="tns:GrondslagFotoUpload" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagFotoUploadResponse" nillable="true" type="tns:GetGrondslagFotoUploadResponse" />
+  <xs:complexType name="SetUserPreferencesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SetUserPreferencesResponse" nillable="true" type="tns:SetUserPreferencesResponse" />
+  <xs:complexType name="SetUserAkkoordVoorwaardenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NieuweAanmelding" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Punten" type="xs:int" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SetUserAkkoordVoorwaardenResponse" nillable="true" type="tns:SetUserAkkoordVoorwaardenResponse" />
+  <xs:complexType name="UserEmailResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="UserEmailResponse" nillable="true" type="tns:UserEmailResponse" />
+  <xs:complexType name="GetGrondslagenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GrondslagSpotlight" nillable="true" type="tns:Grondslag" />
+      <xs:element minOccurs="0" name="Grondslagen" nillable="true" type="tns:ArrayOfGrondslag" />
+      <xs:element minOccurs="0" name="LaatstGekocht" nillable="true" type="tns:MutatieRegel" />
+      <xs:element minOccurs="0" name="LaatstGestart" nillable="true" type="tns:Grondslag" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagenResponse" nillable="true" type="tns:GetGrondslagenResponse" />
+  <xs:complexType name="ArrayOfGrondslag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Grondslag" nillable="true" type="tns:Grondslag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGrondslag" nillable="true" type="tns:ArrayOfGrondslag" />
+  <xs:complexType name="MutatieRegel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element minOccurs="0" name="ActiviteitID" type="xs:long" />
+      <xs:element minOccurs="0" name="ActiviteitNaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Datum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GrondslagCategorie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GrondslagID" type="xs:long" />
+      <xs:element minOccurs="0" name="MutatieRegelID" type="xs:long" />
+      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Punten" type="xs:int" />
+      <xs:element minOccurs="0" name="VerzekerdeNaam" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MutatieRegel" nillable="true" type="tns:MutatieRegel" />
+  <xs:complexType name="GetGrondslagenAanmeldenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EnqueteVragen" nillable="true" type="tns:ArrayOfEnqueteVraag" />
+      <xs:element minOccurs="0" name="Grondslagen" nillable="true" type="tns:ArrayOfGrondslag" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagenAanmeldenResponse" nillable="true" type="tns:GetGrondslagenAanmeldenResponse" />
+  <xs:complexType name="GetGrondslagenEnGestarteGrondslagenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FotoUploads" nillable="true" type="tns:ArrayOfGrondslagFotoUpload" />
+      <xs:element minOccurs="0" name="GestarteGrondslagen" nillable="true" type="tns:ArrayOfGestarteGrondslag" />
+      <xs:element minOccurs="0" name="Grondslagen" nillable="true" type="tns:ArrayOfGrondslag" />
+      <xs:element minOccurs="0" name="NogTeTonenGestarteGrondslagen" type="xs:int" />
+      <xs:element minOccurs="0" name="NogTeTonenGrondslagen" type="xs:int" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagenEnGestarteGrondslagenResponse" nillable="true" type="tns:GetGrondslagenEnGestarteGrondslagenResponse" />
+  <xs:complexType name="ArrayOfGestarteGrondslag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GestarteGrondslag" nillable="true" type="tns:GestarteGrondslag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGestarteGrondslag" nillable="true" type="tns:ArrayOfGestarteGrondslag" />
+  <xs:complexType name="GestarteGrondslag">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Grondslag">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+          <xs:element minOccurs="0" name="ActiviteitID" type="xs:long" />
+          <xs:element minOccurs="0" name="DatumGestart" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="GestartDoor" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GestarteGrondslag" nillable="true" type="tns:GestarteGrondslag" />
+  <xs:complexType name="GetGrondslagCategoriesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Categories" nillable="true" type="tns:ArrayOfGrondslagCategorie" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagCategoriesResponse" nillable="true" type="tns:GetGrondslagCategoriesResponse" />
+  <xs:complexType name="ArrayOfGrondslagCategorie">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GrondslagCategorie" nillable="true" type="tns:GrondslagCategorie" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGrondslagCategorie" nillable="true" type="tns:ArrayOfGrondslagCategorie" />
+  <xs:complexType name="GrondslagCategorie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GrondslagCategorieID" type="xs:long" />
+      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GrondslagCategorie" nillable="true" type="tns:GrondslagCategorie" />
+  <xs:complexType name="GetInteresseGebiedenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InteresseGebieden" nillable="true" type="tns:ArrayOfInteresseGebied" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetInteresseGebiedenResponse" nillable="true" type="tns:GetInteresseGebiedenResponse" />
+  <xs:complexType name="ArrayOfInteresseGebied">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InteresseGebied" nillable="true" type="tns:InteresseGebied" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInteresseGebied" nillable="true" type="tns:ArrayOfInteresseGebied" />
+  <xs:complexType name="InteresseGebied">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GrondslagCategorieId" type="xs:long" />
+      <xs:element minOccurs="0" name="InteresseGebiedID" type="xs:long" />
+      <xs:element minOccurs="0" name="Naam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Omschrijving" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InteresseGebied" nillable="true" type="tns:InteresseGebied" />
+  <xs:complexType name="GetToestemmingenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Grondslagen" nillable="true" type="tns:ArrayOfGestarteGrondslag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetToestemmingenResponse" nillable="true" type="tns:GetToestemmingenResponse" />
+  <xs:complexType name="GetGrondslagSocialInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Gedeeld" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Punten" type="xs:int" />
+      <xs:element minOccurs="0" name="grondslag" nillable="true" type="tns:Grondslag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagSocialInfoResponse" nillable="true" type="tns:GetGrondslagSocialInfoResponse" />
+  <xs:complexType name="GetGrondslagenByCategorieResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Grondslagen" nillable="true" type="tns:ArrayOfGrondslag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetGrondslagenByCategorieResponse" nillable="true" type="tns:GetGrondslagenByCategorieResponse" />
+  <xs:complexType name="GetExtraGrondslagByKeynameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BasisGrondslag" nillable="true" type="tns:Grondslag" />
+      <xs:element minOccurs="0" name="ExtraGrondslag" nillable="true" type="tns:Grondslag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetExtraGrondslagByKeynameResponse" nillable="true" type="tns:GetExtraGrondslagByKeynameResponse" />
+  <xs:complexType name="MutatiesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Mutaties" nillable="true" type="tns:ArrayOfMutatieRegel" />
+      <xs:element minOccurs="0" name="NogTeTonen" type="xs:int" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MutatiesResponse" nillable="true" type="tns:MutatiesResponse" />
+  <xs:complexType name="ArrayOfMutatieRegel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MutatieRegel" nillable="true" type="tns:MutatieRegel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMutatieRegel" nillable="true" type="tns:ArrayOfMutatieRegel" />
+  <xs:complexType name="MutatieResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Added" nillable="true" type="tns:MutatieRegel" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MutatieResponse" nillable="true" type="tns:MutatieResponse" />
+  <xs:complexType name="ResetPasswordResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResetCode" type="ser:guid" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResetPasswordResponse" nillable="true" type="tns:ResetPasswordResponse" />
+  <xs:complexType name="SetNewPasswordResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SetNewPasswordResponse" nillable="true" type="tns:SetNewPasswordResponse" />
+  <xs:complexType name="GetProfileResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Profile" nillable="true" type="tns:Profiel" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetProfileResponse" nillable="true" type="tns:GetProfileResponse" />
+  <xs:complexType name="Profiel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AantalAccounts" type="xs:int" />
+      <xs:element minOccurs="0" name="Actief" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DatumVoorwaardenGeaccepteerd" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsFirstLogin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Polisnummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProfielID" type="xs:long" />
+      <xs:element minOccurs="0" name="UpdateFrequency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Verzekerden" nillable="true" type="tns:ArrayOfAccount" />
+      <xs:element minOccurs="0" name="VoorwaardenGeaccepteerd" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WilEmailUpdates" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Profiel" nillable="true" type="tns:Profiel" />
+  <xs:complexType name="ArrayOfAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Account" nillable="true" type="tns:Account" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccount" nillable="true" type="tns:ArrayOfAccount" />
+  <xs:complexType name="IsDeelnemerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deelnemer" nillable="true" type="tns:Deelnemer" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IsDeelnemerResponse" nillable="true" type="tns:IsDeelnemerResponse" />
+  <xs:complexType name="Deelnemer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Polisnummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Deelnemer" nillable="true" type="tns:Deelnemer" />
+  <xs:complexType name="RegisterResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ReferrerUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegisterResponse" nillable="true" type="tns:RegisterResponse" />
+  <xs:complexType name="DeactivateProfileResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeactivateProfileResponse" nillable="true" type="tns:DeactivateProfileResponse" />
+  <xs:complexType name="GetSingleSignOnKeyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSingleSignOnKeyResponse" nillable="true" type="tns:GetSingleSignOnKeyResponse" />
+  <xs:complexType name="ValideerSingleSignOnKeyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValideerSingleSignOnKeyResponse" nillable="true" type="tns:ValideerSingleSignOnKeyResponse" />
+  <xs:complexType name="SpaarpuntenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+      <xs:element minOccurs="0" name="SpaarpuntenOverview" nillable="true" type="tns:SpaarpuntenOverview" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpaarpuntenResponse" nillable="true" type="tns:SpaarpuntenResponse" />
+  <xs:complexType name="SpaarpuntenOverview">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:long" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="JarenBeschikbaar" nillable="true" type="q9:ArrayOfint" />
+      <xs:element minOccurs="0" name="PuntenDezeMaand" type="xs:int" />
+      <xs:element minOccurs="0" name="PuntenTotaal" type="xs:int" />
+      <xs:element minOccurs="0" name="PuntenTotaalSelectie" type="xs:int" />
+      <xs:element minOccurs="0" name="TotaalActiviteiten" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SpaarpuntenOverview" nillable="true" type="tns:SpaarpuntenOverview" />
+  <xs:complexType name="GetTemplateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HTML" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetTemplateResponse" nillable="true" type="tns:GetTemplateResponse" />
+  <xs:complexType name="SubtractPointsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:PuntenStatusInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubtractPointsResponse" nillable="true" type="tns:SubtractPointsResponse" />
+  <xs:complexType name="PuntenStatusInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Menzis.ServiceModel.Types" minOccurs="0" name="Status" type="q10:PuntenStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PuntenStatusInfo" nillable="true" type="tns:PuntenStatusInfo" />
+  <xs:complexType name="RefreshTokenResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:PuntenStatusInfo" />
+      <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RefreshTokenResponse" nillable="true" type="tns:RefreshTokenResponse" />
+  <xs:complexType name="RetrievePolisInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PuntenSysteemPolisInfo" nillable="true" type="tns:PuntenSysteemPolisInfo" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:PuntenStatusInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RetrievePolisInfoResponse" nillable="true" type="tns:RetrievePolisInfoResponse" />
+  <xs:complexType name="PuntenSysteemPolisInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Gebruiker" nillable="true" type="tns:PuntenVerzekerdeInfo" />
+      <xs:element minOccurs="0" name="IngangsDatumPolis" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MedeVerzekerdenPolis" nillable="true" type="tns:ArrayOfPuntenVerzekerdeInfo" />
+      <xs:element minOccurs="0" name="PolisNummer" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PuntenSysteemPolisInfo" nillable="true" type="tns:PuntenSysteemPolisInfo" />
+  <xs:complexType name="PuntenVerzekerdeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AanvullendVerzekerd" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Achternaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactInfo" nillable="true" type="tns:PuntenContactInfo" />
+      <xs:element minOccurs="0" name="GeboorteDatum" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Menzis.ServiceModel.Types" minOccurs="0" name="Geslacht" type="q11:GeslachtVerzekerde" />
+      <xs:element minOccurs="0" name="Tussenvoegsels" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerzekerdeNummer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VolledigeNaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Voorletters" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PuntenVerzekerdeInfo" nillable="true" type="tns:PuntenVerzekerdeInfo" />
+  <xs:complexType name="PuntenContactInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Huisnummer" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="HuisnummerToevoeging" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Postcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Straatnaam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Woonplaats" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PuntenContactInfo" nillable="true" type="tns:PuntenContactInfo" />
+  <xs:complexType name="ArrayOfPuntenVerzekerdeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PuntenVerzekerdeInfo" nillable="true" type="tns:PuntenVerzekerdeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPuntenVerzekerdeInfo" nillable="true" type="tns:ArrayOfPuntenVerzekerdeInfo" />
+  <xs:complexType name="AuthResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferrerUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthResponse" nillable="true" type="tns:AuthResponse" />
+  <xs:complexType name="ResourcesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="apiVersion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="apis" nillable="true" type="tns:ArrayOfRestService" />
+      <xs:element minOccurs="0" name="basePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="swaggerVersion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResourcesResponse" nillable="true" type="tns:ResourcesResponse" />
+  <xs:complexType name="ArrayOfRestService">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RestService" nillable="true" type="tns:RestService" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRestService" nillable="true" type="tns:ArrayOfRestService" />
+  <xs:complexType name="RestService">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="path" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RestService" nillable="true" type="tns:RestService" />
+  <xs:complexType name="RequestLogsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Results" nillable="true" type="tns:ArrayOfRequestLogEntry" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Usage" nillable="true" type="q12:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="ResponseStatus" nillable="true" type="tns:ResponseStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestLogsResponse" nillable="true" type="tns:RequestLogsResponse" />
+  <xs:complexType name="ArrayOfRequestLogEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestLogEntry" nillable="true" type="tns:RequestLogEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequestLogEntry" nillable="true" type="tns:ArrayOfRequestLogEntry" />
+  <xs:complexType name="RequestLogEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AbsoluteUri" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ErrorResponse" nillable="true" type="xs:anyType" />
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FormData" nillable="true" type="q13:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="ForwardedFor" nillable="true" type="xs:string" />
+      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Headers" nillable="true" type="q14:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="HttpMethod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string" />
+      <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Items" nillable="true" type="q15:ArrayOfKeyValueOfstringanyType" />
+      <xs:element minOccurs="0" name="PathInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Referer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestBody" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestDto" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="RequestDuration" type="ser:duration" />
+      <xs:element minOccurs="0" name="ResponseDto" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Session" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserAuthId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestLogEntry" nillable="true" type="tns:RequestLogEntry" />
+</xs:schema>

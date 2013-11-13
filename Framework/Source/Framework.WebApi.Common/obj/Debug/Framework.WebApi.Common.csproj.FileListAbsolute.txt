@@ -1,0 +1,13 @@
+M:\Lab\Framework\Source\Framework.WebApi.Common\bin\Debug\Framework.WebApi.Common.dll
+M:\Lab\Framework\Source\Framework.WebApi.Common\bin\Debug\Framework.WebApi.Common.pdb
+M:\Lab\Framework\Source\Framework.WebApi.Common\bin\Debug\EntityFramework.dll
+M:\Lab\Framework\Source\Framework.WebApi.Common\bin\Debug\Framework.Data.dll
+M:\Lab\Framework\Source\Framework.WebApi.Common\bin\Debug\System.Net.Http.Formatting.dll
+M:\Lab\Framework\Source\Framework.WebApi.Common\bin\Debug\System.Web.Http.dll
+M:\Lab\Framework\Source\Framework.WebApi.Common\bin\Debug\Framework.Data.pdb
+M:\Lab\Framework\Source\Framework.WebApi.Common\bin\Debug\EntityFramework.xml
+M:\Lab\Framework\Source\Framework.WebApi.Common\bin\Debug\System.Net.Http.Formatting.xml
+M:\Lab\Framework\Source\Framework.WebApi.Common\bin\Debug\System.Web.Http.xml
+M:\Lab\Framework\Source\Framework.WebApi.Common\obj\Debug\Framework.WebApi.Common.csprojResolveAssemblyReference.cache
+M:\Lab\Framework\Source\Framework.WebApi.Common\obj\Debug\Framework.WebApi.Common.dll
+M:\Lab\Framework\Source\Framework.WebApi.Common\obj\Debug\Framework.WebApi.Common.pdb

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Framework.Data.Models" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="AppContext" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="AccessTokens" EntityType="Framework.Data.Models.AccessToken" />
+    <EntitySet Name="Clients" EntityType="Framework.Data.Models.Client" />
+    <EntitySet Name="ClientScopes" EntityType="Framework.Data.Models.ClientScope" />
+    <EntitySet Name="Scopes" EntityType="Framework.Data.Models.Scope" />
+    <AssociationSet Name="FK_AccessToken_Client_ID" Association="Framework.Data.Models.FK_AccessToken_Client_ID">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="AccessToken" EntitySet="AccessTokens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Scope_Client_ID" Association="Framework.Data.Models.FK_Scope_Client_ID">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="ClientScope" EntitySet="ClientScopes" />
+    </AssociationSet>
+    <AssociationSet Name="ForeignKey_Client_ID" Association="Framework.Data.Models.ForeignKey_Client_ID">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="ClientScope" EntitySet="ClientScopes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Scope_id" Association="Framework.Data.Models.FK_Scope_id">
+      <End Role="Scope" EntitySet="Scopes" />
+      <End Role="ClientScope" EntitySet="ClientScopes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AccessToken">
+    <Key>
+      <PropertyRef Name="Token" />
+    </Key>
+    <Property Name="Token" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedOnUtc" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpirationDateUtc" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ClientID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Framework.Data.Models.FK_AccessToken_Client_ID" FromRole="AccessToken" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientIdentifier" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientSecret" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Enabled" Type="Boolean" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="RegisterDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AccessTokens" Relationship="Framework.Data.Models.FK_AccessToken_Client_ID" FromRole="Client" ToRole="AccessToken" />
+    <NavigationProperty Name="ClientScopes" Relationship="Framework.Data.Models.FK_Scope_Client_ID" FromRole="Client" ToRole="ClientScope" />
+    <NavigationProperty Name="ClientScopes1" Relationship="Framework.Data.Models.ForeignKey_Client_ID" FromRole="Client" ToRole="ClientScope" />
+  </EntityType>
+  <EntityType Name="ClientScope">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int32" Nullable="false" />
+    <Property Name="ScopeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Framework.Data.Models.FK_Scope_Client_ID" FromRole="ClientScope" ToRole="Client" />
+    <NavigationProperty Name="Client1" Relationship="Framework.Data.Models.ForeignKey_Client_ID" FromRole="ClientScope" ToRole="Client" />
+    <NavigationProperty Name="Scope" Relationship="Framework.Data.Models.FK_Scope_id" FromRole="ClientScope" ToRole="Scope" />
+  </EntityType>
+  <EntityType Name="Scope">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Action" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Controller" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ClientScopes" Relationship="Framework.Data.Models.FK_Scope_id" FromRole="Scope" ToRole="ClientScope" />
+  </EntityType>
+  <Association Name="FK_AccessToken_Client_ID">
+    <End Role="Client" Type="Framework.Data.Models.Client" Multiplicity="1" />
+    <End Role="AccessToken" Type="Framework.Data.Models.AccessToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AccessToken">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Scope_Client_ID">
+    <End Role="Client" Type="Framework.Data.Models.Client" Multiplicity="1" />
+    <End Role="ClientScope" Type="Framework.Data.Models.ClientScope" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ClientScope">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ForeignKey_Client_ID">
+    <End Role="Client" Type="Framework.Data.Models.Client" Multiplicity="1" />
+    <End Role="ClientScope" Type="Framework.Data.Models.ClientScope" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ClientScope">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Scope_id">
+    <End Role="Scope" Type="Framework.Data.Models.Scope" Multiplicity="1" />
+    <End Role="ClientScope" Type="Framework.Data.Models.ClientScope" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scope">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ClientScope">
+        <PropertyRef Name="ScopeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
