@@ -1,8 +1,0 @@
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\bin\Release\Rb2.Hal.dll
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\bin\Release\Rb2.Hal.pdb
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\bin\Release\Newtonsoft.Json.dll
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\bin\Release\System.Net.Http.Formatting.dll
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\bin\Release\Newtonsoft.Json.xml
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\bin\Release\System.Net.Http.Formatting.xml
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\obj\Release\Rb2.Hal.dll
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\obj\Release\Rb2.Hal.pdb

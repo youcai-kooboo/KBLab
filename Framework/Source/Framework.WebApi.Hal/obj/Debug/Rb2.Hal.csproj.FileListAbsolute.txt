@@ -1,9 +1,0 @@
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\bin\Debug\Rb2.Hal.dll
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\bin\Debug\Rb2.Hal.pdb
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\bin\Debug\Newtonsoft.Json.dll
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\bin\Debug\System.Net.Http.Formatting.dll
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\bin\Debug\Newtonsoft.Json.xml
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\bin\Debug\System.Net.Http.Formatting.xml
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\obj\Debug\Rb2.Hal.dll
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\obj\Debug\Rb2.Hal.pdb
-D:\GitHub\BCDEntertainment\Libraries\Rb2.HAL\obj\Debug\Rb2.Hal.csprojResolveAssemblyReference.cache

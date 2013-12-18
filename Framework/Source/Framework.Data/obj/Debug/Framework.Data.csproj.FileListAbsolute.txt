@@ -1,8 +1,0 @@
-M:\Lab\Framework\Source\Framework.Data\bin\Debug\Framework.Data.dll.config
-M:\Lab\Framework\Source\Framework.Data\bin\Debug\Framework.Data.dll
-M:\Lab\Framework\Source\Framework.Data\bin\Debug\Framework.Data.pdb
-M:\Lab\Framework\Source\Framework.Data\bin\Debug\EntityFramework.dll
-M:\Lab\Framework\Source\Framework.Data\bin\Debug\EntityFramework.xml
-M:\Lab\Framework\Source\Framework.Data\obj\Debug\Framework.Data.csprojResolveAssemblyReference.cache
-M:\Lab\Framework\Source\Framework.Data\obj\Debug\Framework.Data.dll
-M:\Lab\Framework\Source\Framework.Data\obj\Debug\Framework.Data.pdb
