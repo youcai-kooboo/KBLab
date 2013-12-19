@@ -1,0 +1,7 @@
+﻿
+Migration commands:
+
+1.	Enable-Migrations
+2.	Add-Migration [TableName]
+3.	Update-Database -Verbose
+					-Script
